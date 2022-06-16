@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Header from './componants/Header'
+import Body from './componants/Body'
+import Footer from './componants/Footer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+
+let usersData = require('./data/users.json'),
+ currentUser = usersData[usersData.activeUser],
+ showingUser = usersData[usersData.showingUser]
+
+const App = () => (
+  <div className="App">
+    <Header users = {usersData} />
+    <Body showingUser={showingUser} currentUser={currentUser} />
+    <Footer currentUser={currentUser}/>
+  </div>
   );
-}
 
-export default App;
+export default App
+
+
